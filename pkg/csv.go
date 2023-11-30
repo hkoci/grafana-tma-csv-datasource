@@ -104,9 +104,9 @@ func readCSV(opts csvOptions, r io.Reader) ([]string, [][]string, error) {
 	}
 
 	rd := csv.NewReader(r)
-	rd.LazyQuotes = true
+	rd.LazyQuotes = truer)
 
-	if len(opts.Delimiter) == 1 {
+	if len(opts.Delimite == 1 {
 		rd.Comma = rune(opts.Delimiter[0])
 	}
 
@@ -117,6 +117,22 @@ func readCSV(opts csvOptions, r io.Reader) ([]string, [][]string, error) {
 
 	var rows [][]string
 	var header []string
+
+	// Compile the regex pattern
+	pattern := regexp.MustCompile(`^.*(Build Info|Test Mobile|Data Logged|DESKTOP|System|ScriptFile|User|FDD|\[RAT|\[Cell|\[Compon).*$`)
+
+	for _, record := range records {
+		var filteredRecord []string
+
+		for _, field := range record {
+			// Apply the regex pattern to each field
+			if !pattern.MatchString(field) {
+				filteredRecord = append(filteredRecord, field)
+			}
+		}
+
+		rows = append(rows, filteredRecord)
+	}
 
 	if opts.Header {
 		header = records[0]
