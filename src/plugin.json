@@ -1,8 +1,8 @@
 {
   "$schema": "https://github.com/grafana/grafana/raw/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "datasource",
-  "name": "CSV",
-  "id": "marcusolsson-csv-datasource",
+  "name": "NEC CoE Viavi TMA500 Test Campaign",
+  "id": "tma-csv-datasource",
   "metrics": true,
   "backend": true,
   "logs": true,
@@ -10,10 +10,10 @@
   "annotations": true,
   "executable": "gpx_csv-datasource",
   "info": {
-    "description": "A data source for loading CSV data",
+    "description": "A data source for loading test campaign data produced by the Viavi TM500 application",
     "author": {
-      "name": "Grafana Labs",
-      "url": "https://grafana.com"
+      "name": "Duchuy and Henri @ NEC Europe",
+      "url": "https://nec.com"
     },
     "keywords": ["csv"],
     "logos": {

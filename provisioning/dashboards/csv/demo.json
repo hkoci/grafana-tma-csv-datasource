@@ -24,7 +24,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "marcusolsson-csv-datasource",
+        "type": "tma-csv-datasource",
         "uid": "PC98270317B51CBB3"
       },
       "fieldConfig": {
@@ -77,7 +77,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "marcusolsson-csv-datasource",
+            "type": "tma-csv-datasource",
             "uid": "PC98270317B51CBB3"
           },
           "decimalSeparator": ".",
@@ -99,7 +99,7 @@
     },
     {
       "datasource": {
-        "type": "marcusolsson-csv-datasource",
+        "type": "tma-csv-datasource",
         "uid": "P1FA89740118E47A5"
       },
       "fieldConfig": {
@@ -152,7 +152,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "marcusolsson-csv-datasource",
+            "type": "tma-csv-datasource",
             "uid": "P1FA89740118E47A5"
           },
           "decimalSeparator": ".",

@@ -1,0 +1,27 @@
+version: "3"
+services:
+  grafana-dev:
+    image: grafana/grafana:10.0.3
+    container_name: 'marcusolsson-csv-datasource'
+    platform: "linux/amd64"
+    restart: always
+    volumes:
+      - ./dist:/var/lib/grafana/plugins/marcusolsson-csv-datasource
+      - ./provisioning:/etc/grafana/provisioning
+      - grafana-storage-dev:/var/lib/grafana
+    ports:
+      - 3100:3000
+    environment:
+      - GF_PLUGIN_ALLOW_LOCAL_MODE=true
+      - GF_APP_MODE=development
+      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_DASHBOARDS_MIN_REFRESH_INTERVAL=0.1s
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=marcusolsson-csv-datasource
+      - GF_LIVE_ALLOWED_ORIGINS=*
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_DEFAULT_THEME=dark
+      - GF_INSTALL_PLUGINS=marcusolsson-csv-datasource
+
+volumes:
+  grafana-storage-dev:

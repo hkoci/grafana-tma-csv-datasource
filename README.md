@@ -1,4 +1,4 @@
-# CSV TMA data source for Grafana
+# CSV data source for Grafana
 
 [![CI](https://github.com/grafana/grafana-csv-datasource/workflows/CI/badge.svg)](https://github.com/grafana/grafana-csv-datasource/actions?query=workflow%3A%22CI%22)
 [![Release](https://github.com/grafana/grafana-csv-datasource/workflows/Release/badge.svg)](https://github.com/grafana/grafana-csv-datasource/actions?query=workflow%3ARelease)

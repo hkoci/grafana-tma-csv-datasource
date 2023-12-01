@@ -31,6 +31,9 @@ type csvOptions struct {
 }
 
 func parseCSV(opts csvOptions, regex bool, r io.Reader, logger log.Logger) ([]*data.Field, error) {
+	fmt.Println("CSV PARSE FUNCTION")
+	fmt.Println(csvOptions)
+
 	header, rows, err := readCSV(opts, r)
 	if err != nil {
 		return nil, err
@@ -104,9 +107,9 @@ func readCSV(opts csvOptions, r io.Reader) ([]string, [][]string, error) {
 	}
 
 	rd := csv.NewReader(r)
-	rd.LazyQuotes = truer)
+	rd.LazyQuotes = true
 
-	if len(opts.Delimite == 1 {
+	if len(opts.Delimiter) == 1 {
 		rd.Comma = rune(opts.Delimiter[0])
 	}
 
@@ -117,22 +120,6 @@ func readCSV(opts csvOptions, r io.Reader) ([]string, [][]string, error) {
 
 	var rows [][]string
 	var header []string
-
-	// Compile the regex pattern
-	pattern := regexp.MustCompile(`^.*(Build Info|Test Mobile|Data Logged|DESKTOP|System|ScriptFile|User|FDD|\[RAT|\[Cell|\[Compon).*$`)
-
-	for _, record := range records {
-		var filteredRecord []string
-
-		for _, field := range record {
-			// Apply the regex pattern to each field
-			if !pattern.MatchString(field) {
-				filteredRecord = append(filteredRecord, field)
-			}
-		}
-
-		rows = append(rows, filteredRecord)
-	}
 
 	if opts.Header {
 		header = records[0]
